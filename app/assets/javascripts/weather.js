@@ -180,19 +180,15 @@ $(document).ready(function () {
     }
 
     $(function (){
-
       $.ajax({
         type: 'POST',
-        // url: '/weather.js',
-        data: { 
-          cloths :"cloths",
-          users : "users"
-              }, 
-        
-        dataType: 'js'
+        url: '/weather.js',
+        data: "cloths", 
+        dataType: 'json',
+        processData: false,
+        contentType: false
         })
-      .done(function(data) {
-        
+      .done(function() {
           let temp = 'tomorrowTemp';
           let user = 'current_user'; 
           let purpose = user.purpose
