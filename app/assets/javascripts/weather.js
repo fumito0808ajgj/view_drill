@@ -195,14 +195,10 @@ $(document).ready(function () {
         contentType: false
         })
       .done(function() {
-        //   const data = new Date();
-        //   const targetData1 = data.list[whichTomorrowWeatherData];
-        //   let temp =  $('.tomorrowTemp').text(Math.floor((targetData1.main.temp - 273.15) * 10) / 10);
-        //   console.log(tomorrowTemp)
-          let user = current_user; 
-        //   console.dir(user);
-          let purpose = user.purpose;
-          console.log(purpose);
+                
+
+          let purpose = $('.current_user_purpose').val();
+        //   console.log(purpose);
           var array = ['ビジネス(メンズ)', 'ビジネス(レディース)', 'オフィスカジュアル(メンズ)', 'オフィスカジュアル(レディース)', 'プライベート(メンズ)', 'プライベート(レディース)'];
         //   console.log(array);
           var newArray = array;
