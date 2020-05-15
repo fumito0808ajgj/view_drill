@@ -1,4 +1,4 @@
-json.cloth  @comment.cloth
+json.cloth  @cloth.cloth
 json.text  @cloth.text
-json.text  @user.purpose
-json.current_user  @user.cuurrenr_user
+json.purpose  @user.purpose
+json.current_user  @user.current_user

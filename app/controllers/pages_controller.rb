@@ -3,11 +3,13 @@ class PagesController < ApplicationController
     @pages = Page.all
     @cloths = Cloth.all
     @users = User.all
+    
     respond_to do |format|
       format.html 
       format.json {
         render json: { cloths: @cloths, users: @users }
       }
+      # binding.pry
     end
   end
   

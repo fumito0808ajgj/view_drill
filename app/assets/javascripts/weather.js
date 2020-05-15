@@ -6,6 +6,7 @@ $(document).ready(function () {
     //翌日9時のデータの場所を割り出す
     const date = new Date();
     const nowHour = date.getHours();
+    // console.dir(nowHour);
     const whichTomorrowWeatherData = Math.floor((24 - nowHour + 9) / 3);
     const whichDayAfterTomorrowWeatherData = Math.floor((24 - nowHour + 33) / 3);
 
@@ -148,6 +149,7 @@ $(document).ready(function () {
 
                 //翌日9時の天気データ
                 const targetData1 = data.list[whichTomorrowWeatherData];
+                console.log( data.list)
                 const targetData2 = data.list[whichDayAfterTomorrowWeatherData];
 
                 if (targetData1.weather[0].main === "Clear") {
@@ -181,18 +183,28 @@ $(document).ready(function () {
 
     $(function (){
       $.ajax({
-        type: 'POST',
-        url: '/weather.js',
-        data: "cloths", 
-        dataType: 'json',
+        type: 'GET',
+        url: 'http://localhost:3000/',
+        data: { 
+            'current_user':$('#current_user').val(),
+            'text':$('#text').val(),
+            'purpose':$('#purpose').val()
+        }, 
+        dataType: 'html',
         processData: false,
         contentType: false
         })
       .done(function() {
-          let temp = 'tomorrowTemp';
-          let user = 'current_user'; 
-          let purpose = user.purpose
+        //   const data = new Date();
+        //   const targetData1 = data.list[whichTomorrowWeatherData];
+        //   let temp =  $('.tomorrowTemp').text(Math.floor((targetData1.main.temp - 273.15) * 10) / 10);
+        //   console.log(tomorrowTemp)
+          let user = current_user; 
+        //   console.dir(user);
+          let purpose = user.purpose;
+          console.log(purpose);
           var array = ['ビジネス(メンズ)', 'ビジネス(レディース)', 'オフィスカジュアル(メンズ)', 'オフィスカジュアル(レディース)', 'プライベート(メンズ)', 'プライベート(レディース)'];
+        //   console.log(array);
           var newArray = array;
           let weapon = $('#js').val();
           newArray.push(weapon);
@@ -200,76 +212,79 @@ $(document).ready(function () {
 
 
           if ( purpose == 'ビジネス(メンズ)' ) {
-              if ( temp >= 30 ) {
+              if ( $('.tomorrowTemp') >= 30 ) {
                 $(".contents-comment-text-a").text(cloths[0]['text']);
             
-              } else if ( temp >= 26 && temp <= 30 ) {
+              } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
                   $(".contents-comment-text-a").text(cloths[1]['text']);
-              } else if ( temp >= 21 && temp <= 25 ) {
+              } else if ( $('.tomorrowTemp') >= 21 && $('.tomorrowTemp') <= 25 ) {
                   $(".contents-comment-text-a").text(cloths[2]['text']);
-              } else if ( temp >= 15 && temp <= 20 ) {
+              } else if ( $('.tomorrowTemp') >= 15 && $('.tomorrowTemp') <= 20 ) {
                   $(".contents-comment-text-a").text(cloths[3]['text']);
-              } else if ( temp <= 15 ) {
+              } else if ( $('.tomorrowTemp') <= 15 ) {
                   $(".contents-comment-text-a").text(cloths[4]['text']);
               }
           } else if ( purpose == 'ビジネス(レディース)' ) {
-              if ( temp >= 30 ) {
+              if ( $('.tomorrowTemp') >= 30 ) {
                 $(".contents-comment-text-a").text(cloths[5]['text']);
-              } else if ( temp >= 26 && temp <= 30 ) {
+              } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
                   $(".contents-comment-text-a").text(cloths[6]['text']);
-              } else if ( temp >= 16 && temp <= 25 ) {
+              } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
                   $(".contents-comment-text-a").text(cloths[7]['text']);
-              } else if ( temp <= 15 ) {
+              } else if ( $('.tomorrowTemp') <= 15 ) {
                   $(".contents-comment-text-a").text(cloths[8]['text']);
               } 
           } else if ( purpose ==  'オフィスカジュアル(メンズ)' ) {
-              if ( temp >= 30 ) {
+              if ( $('.tomorrowTemp') >= 30 ) {
                 $(".contents-comment-text-a").text(cloths[9]['text']);
-              } else if ( temp >= 26 && temp <= 30 ) {
+              } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
                   $(".contents-comment-text-a").text(cloths[10]['text']);
-              } else if ( temp >= 21 && temp <= 25 ) {
+              } else if ( $('.tomorrowTemp') >= 21 && $('.tomorrowTemp') <= 25 ) {
                   $(".contents-comment-text-a").text(cloths[11]['text']);
-              } else if ( temp >= 15 && temp <= 20 ) {
+              } else if ( $('.tomorrowTemp') >= 15 && $('.tomorrowTemp') <= 20 ) {
                   $(".contents-comment-text-a").text(cloths[13]['text']);
-              } else if(  temp <= 15 ) {
+              } else if(  $('.tomorrowTemp') <= 15 ) {
                   $(".contents-comment-text-a").text(cloths[14]['text']);
               }
           } else if ( purpose == 'オフィスカジュアル(レディース)' ) {
-              if ( temp >= 30 ) {
+              if ( $('.tomorrowTemp') >= 30 ) {
                 $(".contents-comment-text-a").text(cloths[15]['text']);
-              } else if ( temp >= 26 && temp <= 30 ) {
+              } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
                   $(".contents-comment-text-a").text(cloths[16]['text']);
-              } else if ( temp >= 16 && temp <= 25 ) {
+              } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
                   $(".contents-comment-text-a").text(cloths[17]['text']);
-              } else if ( temp >= 15 ){
+              } else if ( $('.tomorrowTemp') >= 15 ){
                   $(".contents-comment-text-a").text(cloths[18]['text']);
               } 
           } else if ( purpose == 'プライベート(メンズ)' ) {
-              if ( temp >= 30 ) {
+              if ( $('.tomorrowTemp') >= 30 ) {
                 $(".contents-comment-text-a").text(cloths[19]['text']);
-              } else if ( temp >= 26 && temp <= 30 ) {
+              } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
                   $(".contents-comment-text-a").text(cloths[20]['text']);
-              } else if ( temp >= 16 && temp <= 25 ) {
+              } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
                   $(".contents-comment-text-a").text(cloths[21]['text']);
-              } else if ( temp <= 15 ) {
+              } else if ( $('.tomorrowTemp') <= 15 ) {
                   $(".contents-comment-text-a").text(cloths[22]['text']);
               } 
           } else if ( purpose == 'プライベート(レディース)' ) {
-              if ( temp >= 30 ) {
+              if ( $('.tomorrowTemp') >= 30 ) {
                 $(".contents-comment-text-a").text(cloths[23]['text']);
-              } else if ( temp >= 26 && temp <= 30 ) {
+              } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
                   $(".contents-comment-text-a").text(cloths[24]['text']);
-              } else if ( temp >= 16 && temp <= 25 ) {
+              } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
                   $(".contents-comment-text-a").text(cloths[25]['text']);
-              } else if ( temp <= 15 ) {
+              } else if ( $('.tomorrowTemp') <= 15 ) {
                   $(".contents-comment-text-a").text(cloths[26]['text']);
               } 
           }
         
         })
-      .fail(function() {
-            alert('error');
-          });
+      .error(function(XMLHttpRequest, textStatus, errorThrown) {
+        alert('error!!!');
+    　　console.log("XMLHttpRequest : " + XMLHttpRequest.status);
+    　　console.log("textStatus     : " + textStatus);
+    　　console.log("errorThrown    : " + errorThrown.message);
+    });
 
     });
 
