@@ -90,6 +90,107 @@ $(document).ready(function () {
                     $('.dayAfterTomorrowWeatherIcon').attr('src', 'http://openweathermap.org/img/w/' + targetData2.weather[0].icon + '.png ');
                 }
             });
+
+            
+            $.ajax({
+                url: "http://api.openweathermap.org/data/2.5/forecast",
+                dataType: "jsonp",
+                data: "lat=" + lat + "&lon=" + lon + "&appid=" + APIKEY,
+                //天気データ呼び出し成功時の挙動
+                success: function (data) {
+
+                    //翌日9時の天気データ
+                    const targetData1 = data.list[whichTomorrowWeatherData];
+                    let purpose = $('.current_user_purpose').val();
+                    var array = ['ビジネス(メンズ)', 'ビジネス(レディース)', 'オフィスカジュアル(メンズ)', 'オフィスカジュアル(レディース)', 'プライベート(メンズ)', 'プライベート(レディース)'];
+                    var newArray = array;
+                    let weapon = $('#js').val();
+                    newArray.push(weapon);
+                    $('.tomorrowTemp').text(Math.floor((targetData1.main.temp - 273.15) * 10) / 10);
+                    $('.tomorrowWeatherIcon').attr('src', 'http://openweathermap.org/img/w/' + targetData1.weather[0].icon + '.png ');
+                    let a =  $('.tomorrowTemp').text(Math.floor((targetData1.main.temp - 273.15) * 10) / 10);
+                    console.log(a);
+
+                    if ( purpose == 1 ) {
+                        if ( $('.tomorrowTemp') >= 30 ) {
+                          $(".contents-comment-text-a").text(gon.cloths_text[0]);
+                        } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[1]);
+                        } else if ( $('.tomorrowTemp') >= 21 && $('.tomorrowTemp') <= 25 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[2]);
+                        } else if ( $('.tomorrowTemp') >= 15 && $('.tomorrowTemp') <= 20 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[3]);
+                        } else if ( $('.tomorrowTemp') <= 15 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[4]);
+                        }
+                    } else if ( purpose == 2 ) {
+                        if ( $('.tomorrowTemp') >= 30 ) {
+                          $(".contents-comment-text-a").text(gon.cloths_text[5]);
+                        } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[6]);
+                        } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[7]);
+                        } else if ( $('.tomorrowTemp') <= 15 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[8]);
+                        } 
+                    } else if ( purpose ==  3 ) {
+                        if ( $('.tomorrowTemp') >= 30 ) {
+                          $(".contents-comment-text-a").text(gon.cloths_text[9]);
+                        } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[10]);
+                        } else if ( $('.tomorrowTemp') >= 21 && $('.tomorrowTemp') <= 25 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[11]);
+                        } else if ( $('.tomorrowTemp') >= 15 && $('.tomorrowTemp') <= 20 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[13]);
+                        } else if (  $('.tomorrowTemp') <= 15 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[14]);
+                        }
+                    } else if ( purpose == 4 ) {
+                        if ( $('.tomorrowTemp') >= 30 ) {
+                          $(".contents-comment-text-a").text(gon.cloths_text[15]);
+                        } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[16]);
+                        } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[17]);
+                        } else if ( $('.tomorrowTemp') >= 15 ){
+                            $(".contents-comment-text-a").text(gon.cloths_text[18]);
+                        } 
+                    } else if ( purpose == 5 ) {
+                        if ( $('.tomorrowTemp') >= 30 ) {
+                          $(".contents-comment-text-a").text(gon.cloths_text[19]);
+                        } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[20]);
+                        } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[21]);
+                        } else if ( $('.tomorrowTemp') <= 15 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[22]);
+                        } 
+                    } else if ( purpose == 6 ) {
+                        if ( $('.tomorrowTemp') >= 30 ) {
+                          $(".contents-comment-text-a").text(gon.cloths_text[23]);
+                        } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[24]);
+                        } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[25]);
+                        } else if ( $('.tomorrowTemp') <= 15 ) {
+                            $(".contents-comment-text-a").text(gon.cloths_text[26]);
+                        } 
+                    }      
+
+
+                   
+
+                    ///各データの表示
+                   
+                    
+                }
+            });
+
+
+
+
+
+
         }
 
         //現在位置の取得に失敗した場合
@@ -181,105 +282,87 @@ $(document).ready(function () {
         });
     }
 
-    $(function (){
-      $.ajax({
-        type: 'GET',
-        url: 'http://localhost:3000/',
-        data: "gon.cloths_text ", 
-        dataType: 'html',
-        processData: false,
-        contentType: false
-        })
-      .done(function() {
-                
+    // $(function (){        
+    // //   .done(function() 
+    //       let purpose = $('.current_user_purpose').val();
+    //        var array = ['ビジネス(メンズ)', 'ビジネス(レディース)', 'オフィスカジュアル(メンズ)', 'オフィスカジュアル(レディース)', 'プライベート(メンズ)', 'プライベート(レディース)'];
+    //        var newArray = array;
+    //        let weapon = $('#js').val();
+    //        newArray.push(weapon);
 
-          let purpose = $('.current_user_purpose').val();
-        //   console.log(purpose);
-         
-
-           var array = ['ビジネス(メンズ)', 'ビジネス(レディース)', 'オフィスカジュアル(メンズ)', 'オフィスカジュアル(レディース)', 'プライベート(メンズ)', 'プライベート(レディース)'];
-        //    console.log(array);
-           var newArray = array;
-           let weapon = $('#js').val();
-           newArray.push(weapon);
-         
-
-
-          if ( purpose == 1 ) {
-              if ( $('.tomorrowTemp') >= 30 ) {
-                $(".contents-comment-text-a").text(gon.cloths_text[0]);
-            
-              } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[1]['text']);
-              } else if ( $('.tomorrowTemp') >= 21 && $('.tomorrowTemp') <= 25 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[2]['text']);
-              } else if ( $('.tomorrowTemp') >= 15 && $('.tomorrowTemp') <= 20 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[3]['text']);
-              } else if ( $('.tomorrowTemp') <= 15 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[4]['text']);
-              }
-          } else if ( purpose == 2 ) {
-              if ( $('.tomorrowTemp') >= 30 ) {
-                $(".contents-comment-text-a").text(gon.cloths_text[5]['text']);
-              } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[6]['text']);
-              } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[7]['text']);
-              } else if ( $('.tomorrowTemp') <= 15 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[8]['text']);
-              } 
-          } else if ( purpose ==  3 ) {
-              if ( $('.tomorrowTemp') >= 30 ) {
-                $(".contents-comment-text-a").text(gon.cloths_text[9]['text']);
-              } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[10]['text']);
-              } else if ( $('.tomorrowTemp') >= 21 && $('.tomorrowTemp') <= 25 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[11]['text']);
-              } else if ( $('.tomorrowTemp') >= 15 && $('.tomorrowTemp') <= 20 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[13]['text']);
-              } else if(  $('.tomorrowTemp') <= 15 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[14]['text']);
-              }
-          } else if ( purpose == 4 ) {
-              if ( $('.tomorrowTemp') >= 30 ) {
-                $(".contents-comment-text-a").text(gon.cloths_text[15]['text']);
-              } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[16]['text']);
-              } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[17]['text']);
-              } else if ( $('.tomorrowTemp') >= 15 ){
-                  $(".contents-comment-text-a").text(gon.cloths_text[18]['text']);
-              } 
-          } else if ( purpose == 5 ) {
-              if ( $('.tomorrowTemp') >= 30 ) {
-                $(".contents-comment-text-a").text(gon.cloths_text[19]['text']);
-              } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[20]['text']);
-              } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[21]['text']);
-              } else if ( $('.tomorrowTemp') <= 15 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[22]['text']);
-              } 
-          } else if ( purpose == 6 ) {
-              if ( $('.tomorrowTemp') >= 30 ) {
-                $(".contents-comment-text-a").text(gon.cloths_text[23]['text']);
-              } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[24]['text']);
-              } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[25]['text']);
-              } else if ( $('.tomorrowTemp') <= 15 ) {
-                  $(".contents-comment-text-a").text(gon.cloths_text[26]['text']);
-              } 
-          }
-        
-        })
-      .error(function(XMLHttpRequest, textStatus, errorThrown) {
-        alert('error!!!');
-    　　console.log("XMLHttpRequest : " + XMLHttpRequest.status);
-    　　console.log("textStatus     : " + textStatus);
-    　　console.log("errorThrown    : " + errorThrown.message);
-    });
-
-    });
-
+    //       if ( purpose == 1 ) {
+    //           if ( $('.tomorrowTemp') >= 30 ) {
+    //             $(".contents-comment-text-a").text(gon.cloths_text[0]);
+    //           } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[1]);
+    //           } else if ( $('.tomorrowTemp') >= 21 && $('.tomorrowTemp') <= 25 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[2]);
+    //           } else if ( $('.tomorrowTemp') >= 15 && $('.tomorrowTemp') <= 20 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[3]);
+    //           } else if ( $('.tomorrowTemp') <= 15 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[4]);
+    //           }
+    //       } else if ( purpose == 2 ) {
+    //           if ( $('.tomorrowTemp') >= 30 ) {
+    //             $(".contents-comment-text-a").text(gon.cloths_text[5]);
+    //           } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[6]);
+    //           } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[7]);
+    //           } else if ( $('.tomorrowTemp') <= 15 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[8]);
+    //           } 
+    //       } else if ( purpose ==  3 ) {
+    //           if ( $('.tomorrowTemp') >= 30 ) {
+    //             $(".contents-comment-text-a").text(gon.cloths_text[9]);
+    //           } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[10]);
+    //           } else if ( $('.tomorrowTemp') >= 21 && $('.tomorrowTemp') <= 25 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[11]);
+    //           } else if ( $('.tomorrowTemp') >= 15 && $('.tomorrowTemp') <= 20 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[13]);
+    //           } else if (  $('.tomorrowTemp') <= 15 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[14]);
+    //           }
+    //       } else if ( purpose == 4 ) {
+    //           if ( $('.tomorrowTemp') >= 30 ) {
+    //             $(".contents-comment-text-a").text(gon.cloths_text[15]);
+    //           } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[16]);
+    //           } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[17]);
+    //           } else if ( $('.tomorrowTemp') >= 15 ){
+    //               $(".contents-comment-text-a").text(gon.cloths_text[18]);
+    //           } 
+    //       } else if ( purpose == 5 ) {
+    //           if ( $('.tomorrowTemp') >= 30 ) {
+    //             $(".contents-comment-text-a").text(gon.cloths_text[19]);
+    //           } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[20]);
+    //           } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[21]);
+    //           } else if ( $('.tomorrowTemp') <= 15 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[22]);
+    //           } 
+    //       } else if ( purpose == 6 ) {
+    //           if ( $('.tomorrowTemp') >= 30 ) {
+    //             $(".contents-comment-text-a").text(gon.cloths_text[23]);
+    //           } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[24]);
+    //           } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[25]);
+    //           } else if ( $('.tomorrowTemp') <= 15 ) {
+    //               $(".contents-comment-text-a").text(gon.cloths_text[26]);
+    //           } 
+    //       }      
+    //     })
 });
+
+//   .error(function(XMLHttpRequest, textStatus, errorThrown) {
+    //     alert('error!!!');
+    // 　　console.log("XMLHttpRequest : " + XMLHttpRequest.status);
+    // 　　console.log("textStatus     : " + textStatus);
+    // 　　console.log("errorThrown    : " + errorThrown.message);
+    // });
+
+    // });
