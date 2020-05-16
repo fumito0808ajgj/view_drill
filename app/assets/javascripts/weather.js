@@ -149,7 +149,7 @@ $(document).ready(function () {
 
                 //翌日9時の天気データ
                 const targetData1 = data.list[whichTomorrowWeatherData];
-                console.log( data.list)
+                // console.log( data.list)
                 const targetData2 = data.list[whichDayAfterTomorrowWeatherData];
 
                 if (targetData1.weather[0].main === "Clear") {
@@ -185,11 +185,7 @@ $(document).ready(function () {
       $.ajax({
         type: 'GET',
         url: 'http://localhost:3000/',
-        data: { 
-            'current_user':$('#current_user').val(),
-            'text':$('#text').val(),
-            'purpose':$('#purpose').val()
-        }, 
+        data: "gon.cloths_text ", 
         dataType: 'html',
         processData: false,
         contentType: false
@@ -199,78 +195,80 @@ $(document).ready(function () {
 
           let purpose = $('.current_user_purpose').val();
         //   console.log(purpose);
-          var array = ['ビジネス(メンズ)', 'ビジネス(レディース)', 'オフィスカジュアル(メンズ)', 'オフィスカジュアル(レディース)', 'プライベート(メンズ)', 'プライベート(レディース)'];
-        //   console.log(array);
-          var newArray = array;
-          let weapon = $('#js').val();
-          newArray.push(weapon);
+         
+
+           var array = ['ビジネス(メンズ)', 'ビジネス(レディース)', 'オフィスカジュアル(メンズ)', 'オフィスカジュアル(レディース)', 'プライベート(メンズ)', 'プライベート(レディース)'];
+        //    console.log(array);
+           var newArray = array;
+           let weapon = $('#js').val();
+           newArray.push(weapon);
          
 
 
-          if ( purpose == 'ビジネス(メンズ)' ) {
+          if ( purpose == 1 ) {
               if ( $('.tomorrowTemp') >= 30 ) {
-                $(".contents-comment-text-a").text(cloths[0]['text']);
+                $(".contents-comment-text-a").text(gon.cloths_text[0]);
             
               } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-                  $(".contents-comment-text-a").text(cloths[1]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[1]['text']);
               } else if ( $('.tomorrowTemp') >= 21 && $('.tomorrowTemp') <= 25 ) {
-                  $(".contents-comment-text-a").text(cloths[2]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[2]['text']);
               } else if ( $('.tomorrowTemp') >= 15 && $('.tomorrowTemp') <= 20 ) {
-                  $(".contents-comment-text-a").text(cloths[3]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[3]['text']);
               } else if ( $('.tomorrowTemp') <= 15 ) {
-                  $(".contents-comment-text-a").text(cloths[4]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[4]['text']);
               }
-          } else if ( purpose == 'ビジネス(レディース)' ) {
+          } else if ( purpose == 2 ) {
               if ( $('.tomorrowTemp') >= 30 ) {
-                $(".contents-comment-text-a").text(cloths[5]['text']);
+                $(".contents-comment-text-a").text(gon.cloths_text[5]['text']);
               } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-                  $(".contents-comment-text-a").text(cloths[6]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[6]['text']);
               } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
-                  $(".contents-comment-text-a").text(cloths[7]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[7]['text']);
               } else if ( $('.tomorrowTemp') <= 15 ) {
-                  $(".contents-comment-text-a").text(cloths[8]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[8]['text']);
               } 
-          } else if ( purpose ==  'オフィスカジュアル(メンズ)' ) {
+          } else if ( purpose ==  3 ) {
               if ( $('.tomorrowTemp') >= 30 ) {
-                $(".contents-comment-text-a").text(cloths[9]['text']);
+                $(".contents-comment-text-a").text(gon.cloths_text[9]['text']);
               } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-                  $(".contents-comment-text-a").text(cloths[10]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[10]['text']);
               } else if ( $('.tomorrowTemp') >= 21 && $('.tomorrowTemp') <= 25 ) {
-                  $(".contents-comment-text-a").text(cloths[11]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[11]['text']);
               } else if ( $('.tomorrowTemp') >= 15 && $('.tomorrowTemp') <= 20 ) {
-                  $(".contents-comment-text-a").text(cloths[13]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[13]['text']);
               } else if(  $('.tomorrowTemp') <= 15 ) {
-                  $(".contents-comment-text-a").text(cloths[14]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[14]['text']);
               }
-          } else if ( purpose == 'オフィスカジュアル(レディース)' ) {
+          } else if ( purpose == 4 ) {
               if ( $('.tomorrowTemp') >= 30 ) {
-                $(".contents-comment-text-a").text(cloths[15]['text']);
+                $(".contents-comment-text-a").text(gon.cloths_text[15]['text']);
               } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-                  $(".contents-comment-text-a").text(cloths[16]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[16]['text']);
               } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
-                  $(".contents-comment-text-a").text(cloths[17]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[17]['text']);
               } else if ( $('.tomorrowTemp') >= 15 ){
-                  $(".contents-comment-text-a").text(cloths[18]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[18]['text']);
               } 
-          } else if ( purpose == 'プライベート(メンズ)' ) {
+          } else if ( purpose == 5 ) {
               if ( $('.tomorrowTemp') >= 30 ) {
-                $(".contents-comment-text-a").text(cloths[19]['text']);
+                $(".contents-comment-text-a").text(gon.cloths_text[19]['text']);
               } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-                  $(".contents-comment-text-a").text(cloths[20]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[20]['text']);
               } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
-                  $(".contents-comment-text-a").text(cloths[21]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[21]['text']);
               } else if ( $('.tomorrowTemp') <= 15 ) {
-                  $(".contents-comment-text-a").text(cloths[22]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[22]['text']);
               } 
-          } else if ( purpose == 'プライベート(レディース)' ) {
+          } else if ( purpose == 6 ) {
               if ( $('.tomorrowTemp') >= 30 ) {
-                $(".contents-comment-text-a").text(cloths[23]['text']);
+                $(".contents-comment-text-a").text(gon.cloths_text[23]['text']);
               } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-                  $(".contents-comment-text-a").text(cloths[24]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[24]['text']);
               } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
-                  $(".contents-comment-text-a").text(cloths[25]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[25]['text']);
               } else if ( $('.tomorrowTemp') <= 15 ) {
-                  $(".contents-comment-text-a").text(cloths[26]['text']);
+                  $(".contents-comment-text-a").text(gon.cloths_text[26]['text']);
               } 
           }
         
