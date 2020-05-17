@@ -36,10 +36,11 @@
   .contents-comment
     .contents-comment-field
       コメント
-    .contents-comment-text
-      = @cloths[0]['text']
+    -# .contents-comment-text
+    -#   = @cloths[0]['text']
     .contents-comment-text-a
       %input{name: "current_user_puropse", type: "hidden", value: current_user.purpose, class: 'current_user_purpose' }/
+    .contents-comment-text-b
 
       -# -if current_user.purpose ==  "ビジネス(メンズ)" then 
       -#   -if tomorrowTemp >= 30 then

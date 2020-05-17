@@ -108,72 +108,73 @@ $(document).ready(function () {
                     newArray.push(weapon);
                     $('.tomorrowTemp').text(Math.floor((targetData1.main.temp - 273.15) * 10) / 10);
                     $('.tomorrowWeatherIcon').attr('src', 'http://openweathermap.org/img/w/' + targetData1.weather[0].icon + '.png ');
-                    let a =  $('.tomorrowTemp').text(Math.floor((targetData1.main.temp - 273.15) * 10) / 10);
-                    console.log(a);
+                    let temp = (Math.floor((targetData1.main.temp - 273.15) * 10) / 10);
+                    let a = gon.cloths_text[7]
+                    console.log(a)
 
                     if ( purpose == 1 ) {
-                        if ( $('.tomorrowTemp') >= 30 ) {
-                          $(".contents-comment-text-a").text(gon.cloths_text[0]);
-                        } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[1]);
-                        } else if ( $('.tomorrowTemp') >= 21 && $('.tomorrowTemp') <= 25 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[2]);
-                        } else if ( $('.tomorrowTemp') >= 15 && $('.tomorrowTemp') <= 20 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[3]);
-                        } else if ( $('.tomorrowTemp') <= 15 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[4]);
+                        if ( temp >= 30 ) {
+                          $(".contents-comment-text-b").text(gon.cloths_text[0]['text']);
+                        } else if ( temp >= 26 && temp <= 30 ) {
+                            $(".contents-comment-text-b").text(gon.cloths_text[1]['text']);
+                        } else if ( temp >= 21 && temp <= 25 ) {
+                            $(".contents-comment-text-b").text(gon.cloths_text[2]['text']);
+                        } else if ( temp >= 15 && temp <= 20 ) {
+                            $(".contents-comment-text-b").text(gon.cloths_text[3]['text']);
+                        } else if ( temp <= 15 ) {
+                            $(".contents-comment-text-b").text(gon.cloths_text[4]['text']);
                         }
                     } else if ( purpose == 2 ) {
-                        if ( $('.tomorrowTemp') >= 30 ) {
-                          $(".contents-comment-text-a").text(gon.cloths_text[5]);
-                        } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[6]);
-                        } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[7]);
-                        } else if ( $('.tomorrowTemp') <= 15 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[8]);
+                        if ( temp >= 30 ) {
+                          $(".contents-comment-text-b").text(gon.cloths_text[5]['text']);
+                        } else if ( temp >= 26 && temp <= 30 ) {
+                            $(".contents-comment-text-b").text(gon.cloths_text[6]['text']);
+                        } else if ( temp >= 16 && temp <= 25 ) {
+                            $('.contents-comment-text-b').text(gon.cloths_text[7]['text']);
+                        } else if ( temp <= 15 ) {
+                            $(".contents-comment-text-b").text(gon.cloths_text[8]['text']);
                         } 
                     } else if ( purpose ==  3 ) {
-                        if ( $('.tomorrowTemp') >= 30 ) {
-                          $(".contents-comment-text-a").text(gon.cloths_text[9]);
-                        } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[10]);
-                        } else if ( $('.tomorrowTemp') >= 21 && $('.tomorrowTemp') <= 25 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[11]);
-                        } else if ( $('.tomorrowTemp') >= 15 && $('.tomorrowTemp') <= 20 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[13]);
-                        } else if (  $('.tomorrowTemp') <= 15 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[14]);
+                        if ( temp >= 30 ) {
+                          $(".contents-comment-text-b").text(gon.cloths_text[9]['text']);
+                        } else if ( temp >= 26 && temp <= 30 ) {
+                            $(".contents-comment-text-b").text(gon.cloths_text[10]['text']);
+                        } else if ( temp >= 21 && temp <= 25 ) {
+                            $(".contents-comment-text-b").text(gon.cloths_text[11]['text']);
+                        } else if ( temp >= 15 && temp <= 20 ) {
+                            $(".contents-comment-text-b").text(gon.cloths_text[13]['text']);
+                        } else if ( temp <= 15 ) {
+                            $(".contents-comment-text-b").text(gon.cloths_text[14]['text']);
                         }
                     } else if ( purpose == 4 ) {
-                        if ( $('.tomorrowTemp') >= 30 ) {
-                          $(".contents-comment-text-a").text(gon.cloths_text[15]);
-                        } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[16]);
-                        } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[17]);
-                        } else if ( $('.tomorrowTemp') >= 15 ){
-                            $(".contents-comment-text-a").text(gon.cloths_text[18]);
+                        if ( temp >= 30 ) {
+                          $(".contents-comment-text-b").text(gon.cloths_text[15]['text']);
+                        } else if ( temp >= 26 && temp <= 30 ) {
+                            $(".contents-comment-text-b").text(gon.cloths_text[16]['text']);
+                        } else if ( temp >= 16 && temp <= 25 ) {
+                            $(".contents-comment-text-b").text(gon.cloths_text[17]['text']);
+                        } else if ( temp >= 15 ){
+                            $(".contents-comment-text-b").text(gon.cloths_text[18]['text']);
                         } 
                     } else if ( purpose == 5 ) {
-                        if ( $('.tomorrowTemp') >= 30 ) {
-                          $(".contents-comment-text-a").text(gon.cloths_text[19]);
-                        } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[20]);
-                        } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[21]);
-                        } else if ( $('.tomorrowTemp') <= 15 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[22]);
+                        if ( temp >= 30 ) {
+                          $(".contents-comment-text-b").text(gon.cloths_text[19]['text']);
+                        } else if ( temp >= 26 && temp <= 30 ) {
+                            $(".contents-comment-text-b").text(gon.cloths_text[20]['text']);
+                        } else if ( temp >= 16 && temp <= 25 ) {
+                            $(".contents-comment-text-b").text(gon.cloths_text[21]['text']);
+                        } else if ( temp <= 15 ) {
+                            $(".contents-comment-text-b").text(gon.cloths_text[22]['text']);
                         } 
                     } else if ( purpose == 6 ) {
-                        if ( $('.tomorrowTemp') >= 30 ) {
-                          $(".contents-comment-text-a").text(gon.cloths_text[23]);
-                        } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[24]);
-                        } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[25]);
-                        } else if ( $('.tomorrowTemp') <= 15 ) {
-                            $(".contents-comment-text-a").text(gon.cloths_text[26]);
+                        if ( temp >= 30 ) {
+                          $(".contents-comment-text-b").text(gon.cloths_text[23]['text']);
+                        } else if ( temp >= 26 && temp <= 30 ) {
+                            $(".contents-comment-text-b").text(gon.cloths_text[24]['text']);
+                        } else if ( temp >= 16 && temp <= 25 ) {
+                            $(".contents-comment-text-b").text(gon.cloths_text[25]['text']);
+                        } else if ( temp <= 15 ) {
+                            $(".contents-comment-text-b").text(gon.cloths_text[26]['text']);
                         } 
                     }      
 
@@ -292,67 +293,67 @@ $(document).ready(function () {
 
     //       if ( purpose == 1 ) {
     //           if ( $('.tomorrowTemp') >= 30 ) {
-    //             $(".contents-comment-text-a").text(gon.cloths_text[0]);
+    //             $(".contents-comment-text-b").text(gon.cloths_text[0]);
     //           } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[1]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[1]);
     //           } else if ( $('.tomorrowTemp') >= 21 && $('.tomorrowTemp') <= 25 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[2]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[2]);
     //           } else if ( $('.tomorrowTemp') >= 15 && $('.tomorrowTemp') <= 20 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[3]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[3]);
     //           } else if ( $('.tomorrowTemp') <= 15 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[4]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[4]);
     //           }
     //       } else if ( purpose == 2 ) {
     //           if ( $('.tomorrowTemp') >= 30 ) {
-    //             $(".contents-comment-text-a").text(gon.cloths_text[5]);
+    //             $(".contents-comment-text-b").text(gon.cloths_text[5]);
     //           } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[6]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[6]);
     //           } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[7]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[7]);
     //           } else if ( $('.tomorrowTemp') <= 15 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[8]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[8]);
     //           } 
     //       } else if ( purpose ==  3 ) {
     //           if ( $('.tomorrowTemp') >= 30 ) {
-    //             $(".contents-comment-text-a").text(gon.cloths_text[9]);
+    //             $(".contents-comment-text-b").text(gon.cloths_text[9]);
     //           } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[10]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[10]);
     //           } else if ( $('.tomorrowTemp') >= 21 && $('.tomorrowTemp') <= 25 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[11]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[11]);
     //           } else if ( $('.tomorrowTemp') >= 15 && $('.tomorrowTemp') <= 20 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[13]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[13]);
     //           } else if (  $('.tomorrowTemp') <= 15 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[14]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[14]);
     //           }
     //       } else if ( purpose == 4 ) {
     //           if ( $('.tomorrowTemp') >= 30 ) {
-    //             $(".contents-comment-text-a").text(gon.cloths_text[15]);
+    //             $(".contents-comment-text-b").text(gon.cloths_text[15]);
     //           } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[16]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[16]);
     //           } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[17]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[17]);
     //           } else if ( $('.tomorrowTemp') >= 15 ){
-    //               $(".contents-comment-text-a").text(gon.cloths_text[18]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[18]);
     //           } 
     //       } else if ( purpose == 5 ) {
     //           if ( $('.tomorrowTemp') >= 30 ) {
-    //             $(".contents-comment-text-a").text(gon.cloths_text[19]);
+    //             $(".contents-comment-text-b").text(gon.cloths_text[19]);
     //           } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[20]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[20]);
     //           } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[21]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[21]);
     //           } else if ( $('.tomorrowTemp') <= 15 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[22]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[22]);
     //           } 
     //       } else if ( purpose == 6 ) {
     //           if ( $('.tomorrowTemp') >= 30 ) {
-    //             $(".contents-comment-text-a").text(gon.cloths_text[23]);
+    //             $(".contents-comment-text-b").text(gon.cloths_text[23]);
     //           } else if ( $('.tomorrowTemp') >= 26 && $('.tomorrowTemp') <= 30 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[24]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[24]);
     //           } else if ( $('.tomorrowTemp') >= 16 && $('.tomorrowTemp') <= 25 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[25]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[25]);
     //           } else if ( $('.tomorrowTemp') <= 15 ) {
-    //               $(".contents-comment-text-a").text(gon.cloths_text[26]);
+    //               $(".contents-comment-text-b").text(gon.cloths_text[26]);
     //           } 
     //       }      
     //     })
