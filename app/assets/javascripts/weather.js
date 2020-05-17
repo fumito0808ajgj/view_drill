@@ -109,8 +109,8 @@ $(document).ready(function () {
                     $('.tomorrowTemp').text(Math.floor((targetData1.main.temp - 273.15) * 10) / 10);
                     $('.tomorrowWeatherIcon').attr('src', 'http://openweathermap.org/img/w/' + targetData1.weather[0].icon + '.png ');
                     let temp = (Math.floor((targetData1.main.temp - 273.15) * 10) / 10);
-                    let a = gon.cloths_text[7]
-                    console.log(a)
+                    // let a = gon.cloths_text[7]
+                    // console.log(a)
 
                     if ( purpose == 1 ) {
                         if ( temp >= 30 ) {
@@ -176,20 +176,99 @@ $(document).ready(function () {
                         } else if ( temp <= 15 ) {
                             $(".contents-comment-text-b").text(gon.cloths_text[26]['text']);
                         } 
-                    }      
-
-
-                   
-
-                    ///各データの表示
-                   
+                    }                         
                     
                 }
             });
 
 
+            $.ajax({
+                url: "http://api.openweathermap.org/data/2.5/forecast",
+                dataType: "jsonp",
+                data: "lat=" + lat + "&lon=" + lon + "&appid=" + APIKEY,
+                //天気データ呼び出し成功時の挙動
+                success: function (data) {
 
-
+                    //翌日9時の天気データ
+                    const targetData1 = data.list[whichTomorrowWeatherData];
+                    let purpose = $('.current_user_purpose').val();
+                    var array = ['ビジネス(メンズ)', 'ビジネス(レディース)', 'オフィスカジュアル(メンズ)', 'オフィスカジュアル(レディース)', 'プライベート(メンズ)', 'プライベート(レディース)'];
+                    var newArray = array;
+                    let weapon = $('#js').val();
+                    newArray.push(weapon);
+                    $('.tomorrowTemp').text(Math.floor((targetData1.main.temp - 273.15) * 10) / 10);
+                    $('.tomorrowWeatherIcon').attr('src', 'http://openweathermap.org/img/w/' + targetData1.weather[0].icon + '.png ');
+                    let temp = (Math.floor((targetData1.main.temp - 273.15) * 10) / 10);
+                    let a = gon.cloths_image[7].cloth.url
+                    console.log(a)
+                    if ( purpose == 1 ) {
+                        if ( temp > 30 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/2/img1-2.jpg");
+                        } else if ( temp > 25 && temp <= 30 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/2/img1-2.jpg");
+                        } else if ( temp > 20 && temp <= 25 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/3/img1-3.jpg");
+                        } else if ( temp > 15 && temp <= 20 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/4/img1-4.jpg");
+                        } else if ( temp <= 15 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/5/img1-5.jpg");
+                        }
+                    } else if ( purpose == 2 ) {
+                        if ( temp > 30 ) {
+                          $('#translate-img').attr("src", "/uploads/cloth/cloth/6/img2-1.jpg");
+                        } else if ( temp > 25 && temp <= 30 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/7/img2-2.jpg");
+                        } else if ( temp > 15 && temp <= 25 ) { 
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/8/img2-3.jpg");
+                        } else if ( temp <= 15 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/9/img2-4.jpg");
+                        } 
+                    } else if ( purpose ==  3 ) {
+                        if ( temp > 30 ) {
+                          $('#translate-img').attr("src", "/uploads/cloth/cloth/10/img3-1.jpg");
+                        } else if ( temp > 26 && temp <= 30 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/11/img3-2.jpg");
+                        } else if ( temp > 20 && temp <= 26 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/12/img3-3.jpg");                            
+                        } else if ( temp > 15 && temp <= 20 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/13/img3-4.jpg");
+                        } else if ( temp <= 15 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/14/img3-5.jpg");
+                        }
+                    } else if ( purpose == 4 ) {
+                        if ( temp > 30 ) {
+                          $('#translate-img').attr("src", "/uploads/cloth/cloth/15/img4-1.jpg");
+                        } else if ( temp > 25 && temp <= 30 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/16/img4-2.jpg");
+                        } else if ( temp > 15 && temp <= 25 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/17/img4-3.jpg");
+                        } else if ( temp <= 15 ){
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/18/img4-4.jpg");
+                        } 
+                    } else if ( purpose == 5 ) {
+                        if ( temp > 30 ) {
+                          $('#translate-img').attr("src", "/uploads/cloth/cloth/19/img5-1.jpg");
+                        } else if ( temp > 25 && temp <= 30 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/20/img5-2.jpg");
+                        } else if ( temp > 15 && temp <= 25 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/21/img5-3.jpg");
+                        } else if ( temp <= 15 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/22/img5-4.jpg");
+                        } 
+                    } else if ( purpose == 6 ) {
+                        if ( temp > 30 ) {
+                          $('#translate-img').attr("src", "/uploads/cloth/cloth/23/img6-1.jpg");
+                        } else if ( temp > 25 && temp <= 30 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/24/img6-2.jpg");
+                        } else if ( temp > 15 && temp <= 25 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/25/img6-3.jpg");
+                        } else if ( temp <= 15 ) {
+                            $('#translate-img').attr("src", "/uploads/cloth/cloth/23/img6-4.jpg");
+                        } 
+                    }                         
+                    
+                }
+            });
 
 
         }

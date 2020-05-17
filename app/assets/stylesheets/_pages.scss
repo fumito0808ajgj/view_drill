@@ -40,6 +40,13 @@
   text-transform: uppercase;
 }
 
+
+#translate-img{
+  height: 400px;
+  width: 400px;  
+
+}
+
 #weather h2 {
   margin: 0 0 8px;
   color: #fff;
@@ -107,7 +114,7 @@
        margin-bottom: 30px;
      }
    
-     &-image-a{
+     &-image{
        width: 400px;
        height: 400px;
 

@@ -3,8 +3,8 @@ class PagesController < ApplicationController
     @pages = Page.all
     @cloths = Cloth.all
     @users = User.all
-    # binding.pry
     gon.cloths_text = @cloths.select(:text)
+    gon.cloths_image = @cloths.select(:cloth)
     gon.all_variables
     # respond_to do |format|
     #   format.html 

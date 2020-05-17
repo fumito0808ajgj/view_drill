@@ -30,8 +30,10 @@
     .contents-cloth-text
       オススメの服装
     .contents-cloth-image
-      = image_tag @cloths[0].cloth.url
-      -# = link_to image_tag(src= "/assets/tasclapimage_2740_29_1.jpg", size: '100×200', class: "contents-cloth-image-a"),"/"
+      %img#translate-img{:src => ""}/
+
+      -# = image_tag @cloths[0].cloth.url
+      
         
   .contents-comment
     .contents-comment-field
