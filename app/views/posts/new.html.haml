@@ -1,0 +1,16 @@
+%body
+  %header.header
+    .header__bar.row
+      %h1.grid-6
+        %a{:href => "/"} WearherCloth
+      .user_nav.grid-6
+        %a.post{:href => "/posts/new"} 投稿する
+
+.contents.row
+  .container
+    = form_with(model: @post, local: true) do |form|
+      %h3
+        投稿する
+      = form.text_field :image, placeholder: "Image Url"
+      = form.text_area :text, placeholder: "text" , rows: "10"
+      = form.submit "SEND"

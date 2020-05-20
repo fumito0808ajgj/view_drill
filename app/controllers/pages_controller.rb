@@ -6,12 +6,6 @@ class PagesController < ApplicationController
     gon.cloths_text = @cloths.select(:text)
     gon.cloths_image = @cloths.select(:cloth)
     gon.all_variables
-    # respond_to do |format|
-    #   format.html 
-    #   format.json {
-    #     render json: { cloths: @cloths }
-    #   }
-    # end
   end
   
   def new

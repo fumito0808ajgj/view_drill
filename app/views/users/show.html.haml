@@ -1,0 +1,8 @@
+.contents.row
+  %p
+    = @name
+    さんの投稿一覧
+  - @posts.each do |post|
+    .content_post{:style => "background-image: url(#{post.image});"}
+      = simple_format(post.text)
+      

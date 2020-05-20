@@ -10,8 +10,10 @@
         .field
           .field-label
             = f.label :name
+            %em (6 characters maximum)
+            %br/
           .field-input
-            = f.text_field :name, autofocus: true
+            = f.text_field :name, autofocus: true, maxlength: "6"
         .field
           .field-label
             = f.label :email
@@ -35,3 +37,5 @@
             = f.select :purpose, [["ビジネス(メンズ)", 1], ["ビジネス(レディース)", 2], ["プライベート(メンズ)", 3], ["プライベート(レディース)", 4], ["オフィスカジュアル(メンズ)", 5], ["オフィスカジュアル(レディース)", 6]], {prompt: "職業を選択してください" }, { id: "js", class: "js-texr"} 
         .actions
           = f.submit "Create Account", class: 'btn'
+
+

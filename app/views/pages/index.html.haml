@@ -1,7 +1,6 @@
 .header
   .header-logo
     wether-cloth
-  
   .header-icon
     %h3.header-icon__name
       = current_user.name
@@ -31,89 +30,18 @@
       オススメの服装
     .contents-cloth-image
       %img#translate-img{:src => ""}/
-
-      -# = image_tag @cloths[0].cloth.url
-      
-        
+              
   .contents-comment
     .contents-comment-field
       コメント
-    -# .contents-comment-text
-    -#   = @cloths[0]['text']
+  
     .contents-comment-text-a
       %input{name: "current_user_puropse", type: "hidden", value: current_user.purpose, class: 'current_user_purpose' }/
     .contents-comment-text-b
 
-      -# -if current_user.purpose ==  "ビジネス(メンズ)" then 
-      -#   -if tomorrowTemp >= 30 then
-      -#     = @cloths[0]['text']
-      -#   -elsif tomorrowTemp >= 26 && tomorrowTemp <= 30 then
-      -#     = @cloths[1]['text']
-      -#   -elsif tomorrowTemp >= 21 && tomorrowTemp <= 25 then
-      -#     = @cloths[2]['text']
-      -#   -elsif tomorrowTemp >= 15 && tomorrowTemp <= 20 then
-      -#     = @cloths[3]['text']
-      -#   -else tomorrowTemp < 15 
-      -#     = @cloths[4]['text']
-        
-      -# -elsif current_user.purpose == "ビジネス(レディース)" then
-      -#   -if tomorrowTemp >= 30 then
-      -#     = @cloths[5]['text']
-      -#   -elsif tomorrowTemp >= 26 && tomorrowTemp <= 30 then
-      -#     = @cloths[6]['text']
-      -#   -elsif tomorrowTemp >= 16 && tomorrowTemp <= 25 then
-      -#     = @cloths[7]['text']
-      -#   -else tomorrowTemp <= 15 
-      -#     = @cloths[8]['text']
-        
-      -# -elsif current_user.purpose == "ビジネスカジュアル(メンズ)" then
-      -#   -if tomorrowTemp >= 30 then
-      -#     = @cloths[９]['text']
-      -#   -elsif tomorrowTemp >= 26 && tomorrowTemp <= 30 then
-      -#     = @cloths[10]['text']
-      -#   -elsif tomorrowTemp >= 21 && tomorrowTemp <= 25 then
-      -#     = @cloths[11]['text']
-      -#   -elsif tomorrowTemp >= 15 && tomorrowTemp <= 20 then
-      -#     = @cloths[12]['text']
-      -#   -else tomorrowTemp <= 15 
-      -#     = @cloths[13]['text']
-        
-      -# -elsif current_user.purpose == "ビジネスカジュアル(レディース)" then
-      -#   -if tomorrowTemp >= 30 then
-      -#     = @cloths[14]['text']
-      -#   -elsif tomorrowTemp >= 26 && tomorrowTemp <= 30 then
-      -#     = @cloths[15]['text']
-      -#   -elsif tomorrowTemp >= 16 && tomorrowTemp <= 25 then
-      -#     = @cloths[16]['text']
-      -#   -else tomorrowTemp >= 15 
-      -#     = @cloths[17]['text']
-        
-      -# -elsif current_user.purpose == "カジュアル(メンズ)" then
-      -#   -if tomorrowTemp >= 30 then
-      -#     = @cloths[18]['text']
-      -#   -elsif tomorrowTemp >= 26 && tomorrowTemp <= 30 then
-      -#     = @cloths[19]['text']
-      -#   -elsif tomorrowTemp >= 16 && tomorrowTemp <= 25 then
-      -#     = @cloths[20]['text']
-      -#   -else tomorrowTemp <= 15 
-      -#     = @cloths[21]['text']
-        
-      -# -else current_user.purpose == "カジュアル(レディース)"
-      -#   -if tomorrowTemp >= 30 then
-      -#     = @cloths[22]['text']
-      -#   -elsif tomorrowTemp >= 26 && tomorrowTemp <= 30 then
-      -#     = @cloths[23]['text']
-      -#   -elsif tomorrowTemp >= 16 && tomorrowTemp <= 25 then
-      -#     = @cloths[24]['text']
-      -#   -else tomorrowTemp <= 15 
-      -#     = @cloths[25]['text']
-        
-          
     
-    
-
   .contents-post
-    %a{ href: "#", class: "contents-post-text"} 他ユーザーの投稿
+    %a{ href: "/posts", class: "contents-post-text"} 他ユーザーの投稿
 
 
 
