@@ -23,13 +23,12 @@
 
 .contents.row
   - @posts.each do |post|
-    .content_post
-    = image_tag post.images[0].image.url, style: "background-image"
+    .content_post{:style => "background-image: url(#{post.image});"}
       .more
         %span= image_tag 'arrow_top.png'
         %ul.more_list
           %li
-            = link_to '詳細', "/posts/#{post.id}", method: :get
+            = link_to '詳細', "/posts/#{post.id}", method: :get 
           %li
             = link_to '編集', "/posts/#{post.id}/edit", method: :get
           %li
@@ -42,3 +41,13 @@
 
   = paginate(@posts)
 
+-#  .main5__itemlist--left--pic
+-#             = link_to item_path(item.id), class:"Edit" do
+-#               = image_tag item.images[0].image.url, width: '230', height: '180'
+-#               .main5__itemlist--left--name
+-#                 = item.name
+-#               .main5__itemlist--left--price
+-#                 = item.selling_price
+-#                 円
+-#               .main5__itemlist--left--text
+-#                 (税込)
