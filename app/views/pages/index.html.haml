@@ -6,7 +6,7 @@
       = current_user.name
     %ul.header-icon__lists
       %li.header-icon__lists-link
-        = link_to do
+        = link_to new_post_path(current_user) do
           = icon('fas', 'pen-square', class: '.header-icon__lists-link-icon')
       %li.header-icon__lists-link
         = link_to edit_user_path(current_user) do

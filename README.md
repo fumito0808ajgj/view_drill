@@ -1,61 +1,62 @@
-# README
+・Weather-Cloth
+・概要
+  ・ユーザー登録
+  ・ユーザー登録に応じた明日の洋服を提示
+  ・現在地のリアルタイムの天気、明日9時、明後日9時の天気を表示
+  ・着た服の投稿
+  ・投稿に対して、コメントと検索が可能
+・制作背景(意図)
+  普段、明日の服装を考えるのが面倒だったり、何を着て行けばわからない人達に向けて、少しでも負担を減らしたいために、このアプリを作りました。また、一つ提示されただけでは、ワンパターンだったり、ピンと来ない可能性があるので、投稿機能をつけ他ユーザーの服を参考にできるように投稿機能も実装しました。
+  
+・DEMO
+ ・ユーザー情報に応じて気温・服装・コメント
+ https://gyazo.com/0dc4072dc834da13262329a55c916b60
+ ・商品投稿
+ https://gyazo.com/606057b5c4ad7f5ef88a1a70cb52ed35
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+・実装予定の内容
+  ・カテゴリー検索機能
+  ・いいね機能
+  
+・DB設計
+# DB設計
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|email|string|null: false,unique:true|
+|password|string|nill :false|
+|purpose|string|nill :false|
 
-Things you may want to cover:
+### Association
+- has_many :posts
+- has_many :buyers
 
-* Ruby version
 
-* System dependencies
+## postsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|post_id|bigint|null: false|
+|text|string|null: false|
+|image|string|null: false|
+### Association
+- belongs_to :user
 
-* Configuration
 
-* Database creation
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|bigint|null: false|
+|posts_id|bigint|null: false|
+|text|string|null: false|
+### Association
+- belongs_to :user
+- belongs_to :post
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-# simpleWeather - jQuery Plugin [![GitHub version](https://badge.fury.io/gh/monkeecreate%2Fjquery.simpleWeather.svg)](https://badge.fury.io/gh/monkeecreate%2Fjquery.simpleWeather)
-
-A simple jQuery plugin to display current weather data for any location and doesn't get in your way. Now supports HTML5 GeoLocation! Handcrafted with ♥ from Austin, TX by [James Fleeting](http://twitter.com/fleetingftw). You can find demos and docs at [simpleweatherjs.com](https://monkeecreate.github.io/jquery.simpleWeather/).
-
-## Get The Latest
-**[Bower](http://bower.io/)**
-```shell
-bower install simpleWeather
-```
-
-**[Component(1)](http://component.io/)**
-```shell
-component install monkeecreate/jquery.simpleWeather
-```
-
-**[CDNJS](http://cdnjs.com/libraries/jquery.simpleWeather/)**
-```html
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
-```
-
-**Git**
-```shell
-git clone git://github.com/monkeecreate/jquery.simpleWeather.git
-```
-
-**Zip File**
-> Download the latest version at [simpleweatherjs.com](https://monkeecreate.github.io/jquery.simpleWeather/)
-
-## Alternatives
-
-* [SimplerWeather](https://github.com/BrookeDot/SimplerWeather) uses the DarkSky API and includes a php proxy to help keep your API key secret.
-
-## Questions?
-If you have any questions or problems hit me up on [twitter](http://twitter.com/fleetingftw) or create a [new issue](https://github.com/monkeecreate/jquery.simpleWeather/issues/new). Don't forget to check the documentation and FAQ at [simpleweatherjs.com](https://monkeecreate.github.io/jquery.simpleWeather/).
-
+## cloths
+|Column|Type|Options|
+|------|----|-------|
+|cloth|string||
+|text|string||
 
