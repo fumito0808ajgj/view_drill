@@ -226,15 +226,17 @@ div.contents.row {
   div.content_post {
     @include boxBase(20px 0 ,30px);
     position: relative;
-    height: 400px;
+    height: 500px;
     color: #fff;
     background-size: cover;
     background-position: center center;
+    background-size: 660px 500px;
     border-radius: 3px;
     box-shadow: 0 0 10px rgba($black,0.2);
     &:after {
       content: '';
       position: absolute;
+      
       top: 0;
       bottom: 0;
       left: 0;

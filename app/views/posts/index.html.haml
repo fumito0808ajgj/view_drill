@@ -23,7 +23,7 @@
 
 .contents.row
   - @posts.each do |post|
-    .content_post{:style => "background-image: url(#{post.image});"}
+    .content_post{:style => "background-image: url(#{post.image});", :width => "400px", :height => "400px"}
       .more
         %span= image_tag 'arrow_top.png'
         %ul.more_list
@@ -41,13 +41,3 @@
 
   = paginate(@posts)
 
--#  .main5__itemlist--left--pic
--#             = link_to item_path(item.id), class:"Edit" do
--#               = image_tag item.images[0].image.url, width: '230', height: '180'
--#               .main5__itemlist--left--name
--#                 = item.name
--#               .main5__itemlist--left--price
--#                 = item.selling_price
--#                 円
--#               .main5__itemlist--left--text
--#                 (税込)
