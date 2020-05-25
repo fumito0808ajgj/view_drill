@@ -36,9 +36,9 @@
 ## postsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|post_id|bigint|null: false|
-|text|string|null: false|
-|image|string|null: false|
+|post_id|bigint||
+|text|string||
+|image|string||
 ### Association
 - belongs_to :user
 
@@ -48,7 +48,7 @@
 |------|----|-------|
 |user_id|bigint|null: false|
 |posts_id|bigint|null: false|
-|text|string|null: false|
+|text|string||
 ### Association
 - belongs_to :user
 - belongs_to :post

@@ -1,3 +1,5 @@
+.wrapper
+  = render partial: 'posts/header'
 .contents.row
   .content_post{:style => "background-image: url(#{@post.image});"}
     - if user_signed_in? && current_user.id == @post.user_id
