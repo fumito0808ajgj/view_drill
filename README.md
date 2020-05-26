@@ -28,8 +28,11 @@
  
  https://gyazo.com/606057b5c4ad7f5ef88a1a70cb52ed35
  
+ 
  ●投稿に対してコメント機能
- https://gyazo.com/ecc1dbde34bcc8262174163343fbd0a0
+ 
+ 
+[![Image from Gyazo](https://i.gyazo.com/ecc1dbde34bcc8262174163343fbd0a0.png)](https://gyazo.com/ecc1dbde34bcc8262174163343fbd0a0)
 
 ■　実装予定の内容
 
