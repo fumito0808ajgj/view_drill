@@ -19,6 +19,8 @@
  
   ・ユーザー登録機能も実装致しました。ユーザー登録ページで、ご自身のメールアドレス・ユーザー名・パスワード・目的を入力し、登録する事が出来ます。ログインした後でも、ユーザー設定ページで変更する事が可能です。
   
+  ・もし、必要条項を入力し忘れて登録ボタンを押した際には、エラーのフラッシュメッセージが出るようにしています。
+  
   [![Image from Gyazo](https://i.gyazo.com/ba32955a679148287a0dcc74625cb547.png)](https://gyazo.com/ba32955a679148287a0dcc74625cb547)
   
   [![Image from Gyazo](https://i.gyazo.com/09fc8f60e03ac4dffff2c9f2102f5b6a.png)](https://gyazo.com/09fc8f60e03ac4dffff2c9f2102f5b6a)
