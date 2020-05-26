@@ -21,9 +21,9 @@
   
   ・もし、必要条項を入力し忘れて登録ボタンを押した際には、エラーのフラッシュメッセージが出るようにしています。
   
-  [![Image from Gyazo](https://i.gyazo.com/ba32955a679148287a0dcc74625cb547.png)](https://gyazo.com/ba32955a679148287a0dcc74625cb547)
-  
   [![Image from Gyazo](https://i.gyazo.com/09fc8f60e03ac4dffff2c9f2102f5b6a.png)](https://gyazo.com/09fc8f60e03ac4dffff2c9f2102f5b6a)
+  
+  [![Image from Gyazo](https://i.gyazo.com/ba32955a679148287a0dcc74625cb547.png)](https://gyazo.com/ba32955a679148287a0dcc74625cb547)
   
 
  ## ユーザー情報に応じて気温・服装・コメントを表示した際の画面
