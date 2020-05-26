@@ -54,7 +54,7 @@
  
  [![Image from Gyazo](https://i.gyazo.com/ecc1dbde34bcc8262174163343fbd0a0.png)](https://gyazo.com/ecc1dbde34bcc8262174163343fbd0a0)
 
-#　実装予定の内容
+#実装予定の内容
 
   ## カテゴリー検索機能
   
