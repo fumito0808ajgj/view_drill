@@ -22,11 +22,14 @@
 
  ●ユーザー情報に応じて気温・服装・コメントを表示します。
  
- https://gyazo.com/0dc4072dc834da13262329a55c916b60
+ 
+ [![Image from Gyazo](https://i.gyazo.com/0dc4072dc834da13262329a55c916b60.png)](https://gyazo.com/0dc4072dc834da13262329a55c916b60)
+ 
  
  ●自分が着た画像を投稿
  
- https://gyazo.com/606057b5c4ad7f5ef88a1a70cb52ed35
+ 
+[![Image from Gyazo](https://i.gyazo.com/606057b5c4ad7f5ef88a1a70cb52ed35.png)](https://gyazo.com/606057b5c4ad7f5ef88a1a70cb52ed35)
  
  
  ●投稿に対してコメント機能
